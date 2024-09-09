@@ -9,11 +9,6 @@ from the prediction
 Date: 2024-08-17
 """
 
-import random
-
-# number = random.choice(numbers)
-# print(number)
-
 
 def maxprofit(numbers: list) -> int:
     """
@@ -27,7 +22,7 @@ def maxprofit(numbers: list) -> int:
 
         # profits = max of the new slide minus the stock market
         # entry point for the day
-        profit = max(newblock) - newblock[0]
+        profit = max(newblock[1:]) - newblock[0]
 
         #  append the daily profit to profits for the overall trading period
         profits.append(profit)
@@ -41,7 +36,9 @@ def maxprofit(numbers: list) -> int:
 if __name__ == "__main__":
     # a list of randomly generated number simulating
     # predicted daily stock prices
-    prices = [random.randint(1, 100) for _ in range(10)]
+    # prices = [random.randint(1, 100) for _ in range(10)]
+    prices = [10, 9, 16, 17, 19, 23]
+    # prices = [8, 6, 5, 4, 3, 2, 1]
     print(prices)
     maxProfit = maxprofit(prices)
     print(maxProfit)
